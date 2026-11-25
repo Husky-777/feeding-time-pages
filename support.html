@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>技术支持与帮助中心 - 喂奶时间 (Milk &amp; Nap Journal)</title>
+  <style>
+    :root {
+      --app-bg: #f6f2e9;
+      --paper-bg: #fffdf8;
+      --paper-card: #ffffff;
+      --paper-subtle: #f3ede1;
+      --ink: #3b2e26;
+      --ink-soft: #6d5c50;
+      --ink-muted: #9e8e80;
+      --accent-butter: #ffc857;
+      --accent-butter-soft: #fff4d6;
+      --accent-milk: #ff9f6e;
+      --accent-milk-soft: #ffefe5;
+      --accent-sleep-soft: #edf1ff;
+      --accent-sage: #6eb38d;
+      --accent-sage-soft: #e6f5ec;
+      --border-hand: rgba(74, 57, 45, 0.14);
+      --border-strong: rgba(59, 46, 38, 0.24);
+      --shadow-card: 0 10px 28px rgba(82, 62, 46, 0.07), 0 2px 6px rgba(82, 62, 46, 0.04);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 28px 16px 64px;
+      font-family: "SF Pro Rounded", "PingFang SC", "Hiragino Sans GB", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--app-bg);
+      background-image: radial-gradient(rgba(130, 108, 90, 0.12) 1.5px, transparent 1.5px);
+      background-size: 20px 20px;
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: var(--accent-butter);
+      border: 2px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 3px 0 var(--ink);
+    }
+    .brand-title {
+      font-size: 20px;
+      font-weight: 900;
+    }
+    .brand-sub {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-weight: 600;
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+    }
+    .nav-pill {
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-soft);
+      background: var(--paper-bg);
+      border: 1.5px solid var(--border-hand);
+    }
+    .nav-pill.active {
+      background: var(--accent-butter-soft);
+      border-color: var(--accent-butter);
+      color: var(--ink);
+    }
+    .hero-card, .section-card {
+      background: var(--paper-bg);
+      border: 1.5px solid var(--border-hand);
+      border-radius: 26px;
+      box-shadow: var(--shadow-card);
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 600px) {
+      .hero-card, .section-card { padding: 22px 18px; }
+    }
+    .hero-card h1 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      font-weight: 900;
+    }
+    .hero-card p {
+      margin: 0 0 18px;
+      color: var(--ink-soft);
+      font-size: 15px;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+      gap: 10px;
+    }
+    .feature-item {
+      background: var(--paper-card);
+      border: 1.5px solid var(--border-hand);
+      border-radius: 16px;
+      padding: 12px 14px;
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+    .feature-item span {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      margin-top: 3px;
+    }
+    h2 {
+      margin: 0 0 16px;
+      font-size: 19px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    details {
+      background: var(--paper-card);
+      border: 1.5px solid var(--border-hand);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+    details[open] {
+      border-color: var(--accent-milk);
+      background: #fffefa;
+    }
+    summary {
+      font-weight: 800;
+      font-size: 15px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      font-size: 18px;
+      color: var(--accent-milk);
+      font-weight: 900;
+    }
+    details[open] summary::after { content: "−"; }
+    details p {
+      margin: 10px 0 0;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border-hand);
+      font-size: 14px;
+      color: var(--ink-soft);
+    }
+    .form-row {
+      margin-bottom: 14px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 11px 13px;
+      border-radius: 14px;
+      border: 1.5px solid var(--border-strong);
+      background: var(--paper-card);
+      color: var(--ink);
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent-milk);
+    }
+    textarea { min-height: 100px; resize: vertical; }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .submit-btn {
+      border: 2px solid var(--ink);
+      background: var(--accent-butter);
+      color: var(--ink);
+      font-weight: 900;
+      font-size: 14px;
+      padding: 11px 22px;
+      border-radius: 16px;
+      cursor: pointer;
+      box-shadow: 0 3px 0 var(--ink);
+    }
+    .submit-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 var(--ink);
+    }
+    .mail-direct {
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+    .mail-direct a {
+      color: #c25b28;
+      font-weight: 800;
+    }
+    .success-banner {
+      display: none;
+      margin-top: 14px;
+      padding: 13px 16px;
+      border-radius: 14px;
+      background: var(--accent-sage-soft);
+      color: #276344;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+    footer a {
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <a class="brand" href="./index.html">
+        <div class="brand-icon">🍼</div>
+        <div>
+          <div class="brand-title">喂奶时间</div>
+          <div class="brand-sub">Milk &amp; Nap Journal · App Support</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a class="nav-pill active" href="./support.html">技术支持与帮助</a>
+        <a class="nav-pill" href="./privacy.html">隐私政策</a>
+      </nav>
+    </header>
+
+    <section class="hero-card">
+      <h1>技术支持与帮助中心</h1>
+      <p>欢迎使用「喂奶时间」——专为新手爸妈打造的暖纸手账风宝宝喂养、睡眠与成长记录工具。如您在使用过程中遇到任何疑问或建议，请查阅下方常见问题或直接联系我们。</p>
+      <div class="feature-grid">
+        <div class="feature-item">🎙️ 语音与拍照记奶<span>按住说话录入 · 萌照变贴纸</span></div>
+        <div class="feature-item">🏝️ 锁屏与灵动岛倒计时<span>不解锁一眼查看下次喂奶时间</span></div>
+        <div class="feature-item">🌙 深夜柔光护眼模式<span>凌晨起夜喂奶温暖不刺眼</span></div>
+        <div class="feature-item">🎵 哄睡白噪音与排敏<span>支持锁屏后台循环播放</span></div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>💡 常见问题解答 (FAQ)</h2>
+
+      <details open>
+        <summary>1. 为什么锁屏界面或灵动岛没有显示喂奶间隔倒计时？</summary>
+        <p>请前往 iPhone 系统「设置 &gt; 喂奶时间」，确认已开启「实时活动（Live Activities）」与「允许通知」开关；同时请确认系统未开启低电量模式限制后台刷新。记录一次新的喂奶并开启倒计时提醒后，锁屏小组件与灵动岛胶囊即会自动同步展示。</p>
+      </details>
+
+      <details>
+        <summary>2. 哄睡白噪音在手机锁屏或切到后台后会停止播放吗？</summary>
+        <p>不会。「喂奶时间」内置的 6 款柔和白噪音（子宫羊水音、窗外细雨、轻柔海浪、暖风吹拂、壁炉篝火、八音盒摇篮曲）以及您自行导入的本地音频均支持锁屏与后台持续循环播放。您也可以直接通过系统锁屏媒体控制中心暂停或调节音量。</p>
+      </details>
+
+      <details>
+        <summary>3. 凌晨喂奶屏幕太亮怎么办？如何切换夜间护眼模式？</summary>
+        <p>点击应用顶部导航栏右侧的「月亮/太阳」主题图标，即可一键切换专为夜间起夜调校的「深夜柔光护眼模式」，低对比度暖棕纸张配色有效减少强光对妈妈与宝宝睡眠的干扰。</p>
+      </details>
+
+      <details>
+        <summary>4. 语音记奶或拍照贴纸提示权限未开启怎么处理？</summary>
+        <p>首次使用语音记奶需要授予「麦克风」与「语音识别」权限；拍照生成手账模切贴纸或保存日签长图需要授予「相机」或「照片」权限。若此前误点了拒绝，前往系统「设置 &gt; 喂奶时间」重新打开对应开关即可立即恢复。</p>
+      </details>
+
+      <details>
+        <summary>5. 我记录的宝宝喂奶数据和手账照片保存在哪里？如何删除？</summary>
+        <p>所有宝宝档案、喂养睡眠记录及照片贴纸均默认存储在您的手机本地沙盒中，无需强制注册账号，充分保护家庭隐私。您可以在时间轴或手账画布中随时删除任意单条记录，也可在应用设置中清空全部本地数据。</p>
+      </details>
+
+      <details>
+        <summary>6. 辅食排敏食材格的状态怎么标记和更新？</summary>
+        <p>打开底部导航「工具箱 &gt; 辅食排敏」，点击任意食材卡片即可在「观察中（黄色）→ 安全（绿色）→ 过敏（桃红）」状态间快速切换并添加备注，帮助清晰追踪每一种新引入辅食的适应情况。</p>
+      </details>
+    </section>
+
+    <section class="section-card">
+      <h2>📮 联系我们与问题反馈 (Contact Support)</h2>
+      <form id="supportForm">
+        <div class="form-row">
+          <label for="topic">反馈类型 / Topic</label>
+          <select id="topic" required>
+            <option value="使用咨询">功能使用咨询 (How-to Question)</option>
+            <option value="问题反馈">故障或异常反馈 (Bug Report)</option>
+            <option value="功能建议">新功能或手账贴纸建议 (Feature Request)</option>
+            <option value="隐私与数据">隐私与数据相关咨询 (Privacy Inquiry)</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="email">您的联系邮箱 / Your Email</label>
+          <input type="email" id="email" placeholder="name@example.com" required />
+        </div>
+        <div class="form-row">
+          <label for="device">设备型号与系统版本（选填）/ Device &amp; iOS Version</label>
+          <input type="text" id="device" placeholder="例如：iPhone 16 Pro · iOS 18.2" />
+        </div>
+        <div class="form-row">
+          <label for="message">详细描述 / Message</label>
+          <textarea id="message" placeholder="请描述您遇到的问题或建议，我们会尽快为您解答……" required></textarea>
+        </div>
+        <div class="btn-row">
+          <button type="submit" class="submit-btn">发送反馈邮件</button>
+          <span class="mail-direct">或直接发送邮件至：<a href="mailto:teslawang9@gmail.com">teslawang9@gmail.com</a>（工作日 24 小时内响应）</span>
+        </div>
+        <div id="successBanner" class="success-banner">
+          ✅ 已为您生成反馈邮件草稿！如未自动唤起邮件客户端，请直接发送邮件至 teslawang9@gmail.com，感谢您的支持。
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      &copy; 2026 喂奶时间 (Milk &amp; Nap Journal). All rights reserved. · <a href="./support.html">技术支持</a> · <a href="./privacy.html">隐私政策</a>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('supportForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var topic = document.getElementById('topic').value;
+      var email = document.getElementById('email').value;
+      var device = document.getElementById('device').value || '未填写';
+      var message = document.getElementById('message').value;
+      var subject = encodeURIComponent('【喂奶时间反馈】' + topic);
+      var body = encodeURIComponent(
+        '反馈类型：' + topic + '\n' +
+        '联系邮箱：' + email + '\n' +
+        '设备信息：' + device + '\n\n' +
+        '详细描述：\n' + message
+      );
+      document.getElementById('successBanner').style.display = 'block';
+      window.location.href = 'mailto:teslawang9@gmail.com?subject=' + subject + '&body=' + body;
+    });
+  </script>
+</body>
+</html>

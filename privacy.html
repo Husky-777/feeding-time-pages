@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>隐私政策 - 喂奶时间 (Milk &amp; Nap Journal)</title>
+  <style>
+    :root {
+      --app-bg: #f6f2e9;
+      --paper-bg: #fffdf8;
+      --paper-card: #ffffff;
+      --paper-subtle: #f3ede1;
+      --ink: #3b2e26;
+      --ink-soft: #6d5c50;
+      --ink-muted: #9e8e80;
+      --accent-butter: #ffc857;
+      --accent-butter-soft: #fff4d6;
+      --accent-milk: #ff9f6e;
+      --accent-milk-soft: #ffefe5;
+      --accent-sage: #73b891;
+      --accent-sage-soft: #e6f5ec;
+      --border-hand: rgba(74, 57, 45, 0.14);
+      --shadow-card: 0 10px 28px rgba(82, 62, 46, 0.07), 0 2px 6px rgba(82, 62, 46, 0.04);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 28px 16px 64px;
+      font-family: "SF Pro Rounded", "PingFang SC", "Hiragino Sans GB", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--app-bg);
+      background-image: radial-gradient(rgba(130, 108, 90, 0.12) 1.5px, transparent 1.5px);
+      background-size: 20px 20px;
+      color: var(--ink);
+      line-height: 1.75;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: var(--accent-butter);
+      border: 2px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 3px 0 var(--ink);
+    }
+    .brand-title {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+    }
+    .brand-sub {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-weight: 600;
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+    }
+    .nav-pill {
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-soft);
+      background: var(--paper-bg);
+      border: 1.5px solid var(--border-hand);
+    }
+    .nav-pill.active {
+      background: var(--accent-butter-soft);
+      border-color: var(--accent-butter);
+      color: var(--ink);
+    }
+    .paper-sheet {
+      background: var(--paper-bg);
+      border: 1.5px solid var(--border-hand);
+      border-radius: 26px;
+      box-shadow: var(--shadow-card);
+      padding: 32px 28px;
+    }
+    @media (max-width: 600px) {
+      .paper-sheet { padding: 24px 18px; }
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: var(--accent-sage-soft);
+      color: #2f6f4e;
+    }
+    .badge.warm {
+      background: var(--accent-milk-soft);
+      color: #c25b28;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      font-weight: 900;
+    }
+    .meta {
+      font-size: 13px;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1.5px dashed var(--border-hand);
+    }
+    .highlight-box {
+      background: var(--accent-butter-soft);
+      border: 1.5px solid rgba(255, 200, 87, 0.55);
+      border-radius: 18px;
+      padding: 16px 18px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: var(--ink);
+    }
+    h2 {
+      font-size: 18px;
+      font-weight: 800;
+      margin: 28px 0 10px;
+      padding-left: 12px;
+      border-left: 4px solid var(--accent-milk);
+    }
+    p, li {
+      font-size: 15px;
+      color: var(--ink-soft);
+    }
+    ul {
+      padding-left: 20px;
+      margin: 8px 0 16px;
+    }
+    li { margin-bottom: 8px; }
+    li strong { color: var(--ink); }
+    .perm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin: 14px 0 18px;
+    }
+    .perm-card {
+      background: var(--paper-card);
+      border: 1.5px solid var(--border-hand);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+    .perm-card h3 {
+      margin: 0 0 6px;
+      font-size: 15px;
+      color: var(--ink);
+    }
+    .perm-card p {
+      margin: 0;
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+    footer a {
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <a class="brand" href="./index.html">
+        <div class="brand-icon">🍼</div>
+        <div>
+          <div class="brand-title">喂奶时间</div>
+          <div class="brand-sub">Milk &amp; Nap Journal</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a class="nav-pill" href="./support.html">技术支持与帮助</a>
+        <a class="nav-pill active" href="./privacy.html">隐私政策</a>
+      </nav>
+    </header>
+
+    <main class="paper-sheet">
+      <div class="badge-row">
+        <span class="badge">本地存储优先 · 免强制登录</span>
+        <span class="badge warm">无第三方广告追踪</span>
+      </div>
+      <h1>《喂奶时间》隐私政策</h1>
+      <div class="meta">
+        生效日期：2026年11月25日 &nbsp;|&nbsp; 最近更新：2026年11月25日
+      </div>
+
+      <div class="highlight-box">
+        <strong>核心隐私承诺：</strong>「喂奶时间」（以下简称“本应用”）深知宝宝成长与家庭记录数据的高度私密性。本应用采用<strong>设备本地优先（Local-First）</strong>架构设计，您无需注册账号即可完整使用核心记录功能；您录入的宝宝喂养、睡眠、体格、辅食排敏及手账照片贴纸均默认保存在您的设备本地（或您个人授权开启的 Apple iCloud 私人空间），我们不会将您的个人或家庭数据上传至第三方服务器用于商业分析、广告定向或出售。
+      </div>
+
+      <h2>一、我们收集与处理的信息范围</h2>
+      <p>为了向您提供喂养睡眠时间轴记录、手账拼贴与间隔提醒功能，您可以在本应用内自主录入以下信息：</p>
+      <ul>
+        <li><strong>宝宝基础档案：</strong>您自定义的宝宝小名/昵称、头像图片、出生日期或月龄阶段。</li>
+        <li><strong>日常喂养与作息记录：</strong>母乳亲喂、瓶喂奶量、睡眠起止时间、换尿布情况、身高体重头围体格记录、每日户外活动时长、维生素 AD 打卡记录。</li>
+        <li><strong>辅食排敏与手账内容：</strong>辅食添加食材状态（安全 / 观察中 / 过敏）、随手拍制作的手账贴纸图片及文字备注。</li>
+      </ul>
+      <p>上述全部数据均直接存储在您的 iOS / iPadOS 设备本地沙盒中。如您主动开启 iCloud 同步或系统级设备备份，相关数据仅通过 Apple 官方 CloudKit 加密通道保存在您个人的 iCloud 账户内，开发者无法查看、调取或解密您的私人记录。</p>
+
+      <h2>二、设备系统权限调用说明</h2>
+      <p>本应用仅在您主动触发特定功能时按需申请系统权限，您可随时在系统「设置」中撤回授权，拒绝某项权限不会影响其他无关功能的正常使用：</p>
+      <div class="perm-grid">
+        <div class="perm-card">
+          <h3>🎙️ 麦克风与语音识别权限</h3>
+          <p>仅在您主动按住底部「语音记奶」按钮说话时调用，用于将您的语音内容实时转换为喂养或睡眠记录文字。松开按钮即停止采集，绝不在后台静默录音。</p>
+        </div>
+        <div class="perm-card">
+          <h3>📷 相机与相册读写权限</h3>
+          <p>仅在您主动拍摄照片生成手账模切贴纸、更换宝宝头像，或点击「分享手账」将日签图片保存至手机系统相册时使用，不会私自扫描或上传您的相册内容。</p>
+        </div>
+        <div class="perm-card">
+          <h3>🔔 通知与锁屏实时活动权限</h3>
+          <p>用于在设定的喂奶间隔到点时向您发送本地提醒通知，以及在锁屏界面与灵动岛（Dynamic Island）实时显示距离下次喂奶的倒计时进度。</p>
+        </div>
+        <div class="perm-card">
+          <h3>🎵 本地音频导入与后台播放</h3>
+          <p>仅在您播放应用内置哄睡白噪音或主动选择设备中的本地音频文件时，支持锁屏与后台循环播放，不读取任何无关文件。</p>
+        </div>
+      </div>
+
+      <h2>三、数据共享、转让与第三方服务</h2>
+      <ul>
+        <li><strong>零广告追踪：</strong>本应用不包含任何第三方商业广告 SDK，不请求跨应用跟踪权限（IDFA），也不会将您的使用行为共享给数据经纪商。</li>
+        <li><strong>合规披露例外：</strong>由于您的数据存储在本地设备及个人 iCloud 中，我们不持有您的日常育儿记录；仅当您主动通过邮件或技术支持渠道联系我们反馈问题时，我们会仅出于解答您的咨询之目的处理您主动提供的联系方式与问题描述，并在问题解决后妥善保管或按您要求删除。</li>
+      </ul>
+
+      <h2>四、儿童与未成年人隐私保护</h2>
+      <p>本应用是一款面向<strong>成年父母或法定监护人</strong>使用的育儿记录工具，不面向未满 14 周岁的未成年人直接提供独立注册或社交互动服务。应用内涉及婴幼儿的喂养、睡眠及成长记录均由监护人自主录入并完全掌控在本地设备中。我们严格遵循儿童个人信息保护相关法律法规及 Apple App Store 审核指南要求，绝不收集、公开或向第三方披露任何婴幼儿身份信息。</p>
+
+      <h2>五、您对数据的管理与删除权利</h2>
+      <ul>
+        <li><strong>随时修改与删除单条记录：</strong>您可以在时间轴或手账画布中随时编辑、删除任意一条喂养、睡眠、贴纸或辅食排敏记录。</li>
+        <li><strong>一键清空与卸载清除：</strong>您可以在应用「设置」中执行清空本地数据操作，或直接从设备卸载「喂奶时间」应用，设备本地沙盒内的所有记录将被系统立即彻底清除。若您开启了 iCloud 备份，亦可在系统「设置 &gt; Apple 账户 &gt; iCloud」中随时删除对应存储数据。</li>
+      </ul>
+
+      <h2>六、隐私政策的变更</h2>
+      <p>随着产品功能迭代或法律法规更新，我们可能会适时修订本隐私政策，并在本页面更新“最近更新”日期。若涉及实质性变更，我们将在应用更新说明或应用内显著位置向您提示。</p>
+
+      <h2>七、联系我们（Privacy Contact）</h2>
+      <p>如您对本《隐私政策》或数据处理方式有任何疑问、意见或建议，欢迎随时通过以下方式与我们联系，我们将在收到请求后的 15 个工作日内予以回复：</p>
+      <ul>
+        <li><strong>应用名称：</strong>喂奶时间（Milk &amp; Nap Journal）</li>
+        <li><strong>在线支持中心：</strong><a href="./support.html">点击前往技术支持与问题反馈页面</a></li>
+        <li><strong>联系邮箱：</strong><a href="mailto:teslawang9@gmail.com">teslawang9@gmail.com</a></li>
+      </ul>
+    </main>
+
+    <footer>
+      &copy; 2026 喂奶时间 (Milk &amp; Nap Journal). All rights reserved. · <a href="./support.html">技术支持</a> · <a href="./privacy.html">隐私政策</a>
+    </footer>
+  </div>
+</body>
+</html>
