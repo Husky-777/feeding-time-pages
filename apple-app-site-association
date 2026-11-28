@@ -8,15 +8,23 @@
           "2KYTA8MQ57.com.milkjournal.feedingtime"
         ],
         "paths": [
+          "/feedingtime/*",
           "/app/*",
-          "/wx/*"
+          "/wx/*",
+          "/feeding-time-pages/app/*"
         ],
         "components": [
+          {
+            "/": "/feedingtime/*"
+          },
           {
             "/": "/app/*"
           },
           {
             "/": "/wx/*"
+          },
+          {
+            "/": "/feeding-time-pages/app/*"
           }
         ]
       }
