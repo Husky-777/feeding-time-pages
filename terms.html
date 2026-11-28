@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>用户协议 - 喂奶时间 (Milk &amp; Nap Journal)</title>
+  <style>
+    :root {
+      --app-bg: #f6f2e9;
+      --paper-bg: #fffdf8;
+      --paper-card: #ffffff;
+      --paper-subtle: #f3ede1;
+      --ink: #3b2e26;
+      --ink-soft: #6d5c50;
+      --ink-muted: #9e8e80;
+      --accent-butter: #ffc857;
+      --accent-butter-soft: #fff4d6;
+      --accent-milk: #ff9f6e;
+      --accent-milk-soft: #ffefe5;
+      --accent-sage: #73b891;
+      --accent-sage-soft: #e6f5ec;
+      --border-hand: rgba(74, 57, 45, 0.14);
+      --shadow-card: 0 10px 28px rgba(82, 62, 46, 0.07), 0 2px 6px rgba(82, 62, 46, 0.04);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 28px 16px 64px;
+      font-family: "SF Pro Rounded", "PingFang SC", "Hiragino Sans GB", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--app-bg);
+      background-image: radial-gradient(rgba(130, 108, 90, 0.12) 1.5px, transparent 1.5px);
+      background-size: 20px 20px;
+      color: var(--ink);
+      line-height: 1.75;
+    }
+    .container { max-width: 780px; margin: 0 auto; }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: var(--accent-butter);
+      border: 2px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 3px 0 var(--ink);
+    }
+    .brand-title { font-size: 20px; font-weight: 900; letter-spacing: 0.3px; }
+    .brand-sub { font-size: 12px; color: var(--ink-muted); font-weight: 600; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .nav-pill {
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-soft);
+      background: var(--paper-bg);
+      border: 1.5px solid var(--border-hand);
+    }
+    .nav-pill.active {
+      background: var(--accent-butter-soft);
+      border-color: var(--accent-butter);
+      color: var(--ink);
+    }
+    .paper-sheet {
+      background: var(--paper-bg);
+      border: 1.5px solid var(--border-hand);
+      border-radius: 26px;
+      box-shadow: var(--shadow-card);
+      padding: 32px 28px;
+    }
+    @media (max-width: 600px) { .paper-sheet { padding: 24px 18px; } }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: var(--accent-sage-soft);
+      color: #2f6f4e;
+    }
+    .badge.warm { background: var(--accent-milk-soft); color: #c25b28; }
+    h1 { margin: 0 0 8px; font-size: 26px; font-weight: 900; }
+    .meta {
+      font-size: 13px;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1.5px dashed var(--border-hand);
+    }
+    .highlight-box {
+      background: var(--accent-butter-soft);
+      border: 1.5px solid rgba(255, 200, 87, 0.55);
+      border-radius: 18px;
+      padding: 16px 18px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: var(--ink);
+    }
+    h2 {
+      font-size: 18px;
+      font-weight: 800;
+      margin: 28px 0 10px;
+      padding-left: 12px;
+      border-left: 4px solid var(--accent-milk);
+    }
+    p, li { font-size: 15px; color: var(--ink-soft); }
+    ul { padding-left: 20px; margin: 8px 0 16px; }
+    li { margin-bottom: 8px; }
+    li strong { color: var(--ink); }
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+    footer a { color: var(--ink-soft); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <a class="brand" href="./index.html">
+        <div class="brand-icon">🍼</div>
+        <div>
+          <div class="brand-title">喂奶时间</div>
+          <div class="brand-sub">Milk &amp; Nap Journal</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a class="nav-pill" href="./support.html">技术支持与帮助</a>
+        <a class="nav-pill active" href="./terms.html">用户协议</a>
+        <a class="nav-pill" href="./privacy.html">隐私政策</a>
+      </nav>
+    </header>
+
+    <main class="paper-sheet">
+      <div class="badge-row">
+        <span class="badge">用户服务协议</span>
+        <span class="badge warm">适用于 iOS · 微信小程序 · 多端同步</span>
+      </div>
+      <h1>《喂奶时间》用户服务协议</h1>
+      <div class="meta">
+        生效日期：2026年11月28日 &nbsp;|&nbsp; 最近更新：2026年11月28日<br/>
+        运营主体：杭州布叽传媒科技有限公司（Hangzhou Buji Media Technology Co., Ltd.）
+      </div>
+
+      <div class="highlight-box">
+        <strong>特别提示：</strong>欢迎您使用「喂奶时间」（以下简称“本应用”或“本服务”）。在您注册、登录或使用本服务前，请仔细阅读并充分理解本协议全部条款（尤其是涉及免责、会员订阅与账号注销的加粗内容）。您点击同意或实际使用本服务，即视为您已阅读并同意接受本协议及<a href="./privacy.html">《隐私政策》</a>的约束。
+      </div>
+
+      <h2>一、服务内容说明</h2>
+      <p>「喂奶时间」是一款面向新手父母及家庭监护人的婴幼儿日常喂养与成长手账记录工具，主要提供以下功能：</p>
+      <ul>
+        <li><strong>日常喂养与作息记录：</strong>支持瓶喂/亲喂、睡眠、换尿布、拉粑粑、辅食、洗澡、户外活动、玩耍、维生素打卡等日常记录与时间轴浏览。</li>
+        <li><strong>成长手账与月度手账本：</strong>支持拍照智能抠图贴纸、语音快记、多种自动排版工具、手账底纸与实体风月度手账本浏览与导出分享。</li>
+        <li><strong>提醒与多设备协同：</strong>支持喂奶间隔提醒、哄睡白噪音、锁屏灵动岛（Pro）、Apple Watch 同步（Pro）以及绑定账号后的跨平台云端数据同步。</li>
+      </ul>
+
+      <h2>二、账号注册、第三方登录与多端绑定</h2>
+      <ul>
+        <li><strong>免强制登录试用：</strong>您无需注册账号即可直接以游客身份在设备本地使用核心记录功能。</li>
+        <li><strong>微信登录与通过 Apple 登录：</strong>为实现 iOS App、微信小程序及未来安卓设备间的数据云端同步、换机不丢失及会员权益互通，您可以自主选择使用「微信一键登录」或「通过 Apple 登录」，并在「设置 → 账号与云同步」中关联绑定。</li>
+        <li><strong>账号安全与合法使用：</strong>您应妥善保管自己的第三方登录凭证，不得将账号用于任何违法违规、恶意攻击或破坏本服务正常运行的行为。</li>
+      </ul>
+
+      <h2>三、Pro 会员订阅与内购规则</h2>
+      <ul>
+        <li><strong>会员权益：</strong>开通「喂奶时间 Pro」会员后，您可在有效期内使用无限次拍照智能抠图、5 套自动排版工具、100 款手账底纸与手账本样式、去水印分享、锁屏灵动岛、Apple Watch 同步及相册补录整月手账等增值功能。</li>
+        <li><strong>扣款与自动续费（iOS App Store）：</strong>通过 Apple App Store 购买的连续订阅服务，费用将在您确认购买时从您的 Apple ID 账户扣除。除非您在当前订阅周期结束前至少 24 小时关闭自动续订，否则订阅将自动续期并扣款。您可随时在 iPhone「设置 → Apple ID → 订阅」中管理或取消订阅。</li>
+        <li><strong>永久买断与恢复购买：</strong>一次性买断套餐购买成功后长期有效；若您更换同平台设备，可在会员页点击「恢复购买」同步权益。</li>
+        <li><strong>退款规则：</strong>iOS 端内购交易均由 Apple 结算处理，如需申请退款请通过 Apple 官方渠道（reportaproblem.apple.com）办理。</li>
+      </ul>
+
+      <h2>四、账号注销与数据删除</h2>
+      <p>您对自己的账号及数据享有完全控制权，随时可在应用内<strong>「设置 → 账号与云同步 → 注销并删除账号」</strong>发起注销申请。账号注销一旦确认完成，您在云端保存的账号标识、绑定关系与同步记录将被永久删除且无法恢复（请提前做好必要导出备份；如您仍有生效中的自动续费订阅，请记得在系统订阅管理中取消自动续费）。</p>
+
+      <h2>五、用户内容与知识产权</h2>
+      <ul>
+        <li><strong>您的内容归您所有：</strong>您在本应用中上传拍摄的宝宝照片、手账贴纸、文字笔记等全部内容，其完整知识产权与隐私权始终归您本人所有。我们仅在为您提供本地渲染、云端同步与分享导出功能之必要范围内进行处理。</li>
+        <li><strong>软件知识产权：</strong>本应用内置的手绘插画、贴纸模板、界面设计、底纸纹样、月度手账本装帧设计、程序代码及商标均归杭州布叽传媒科技有限公司或相关权利人依法享有，未经书面许可不得用于商业转售或侵权复制。</li>
+      </ul>
+
+      <h2>六、非医疗建议免责声明</h2>
+      <p><strong>本应用提供的喂奶间隔提醒、奶量参考、生长曲线标准表及辅食记录仅作为家庭日常育儿记录与辅助工具，不构成任何形式的医疗诊断、临床建议或专业儿科治疗意见。</strong>若宝宝出现发热、持续拒奶、过敏反应、生长发育异常或其他健康问题，请务必及时前往正规医疗机构咨询专业儿科医生。</p>
+
+      <h2>七、协议修改与适用法律</h2>
+      <p>我们可能根据产品功能迭代或法律法规要求适时修订本协议，并在本页面更新生效日期。本协议的订立、执行与解释适用中华人民共和国法律；如因本协议产生争议，双方应友好协商解决，协商不成的，任一方可向运营主体所在地有管辖权的人民法院提起诉讼。</p>
+
+      <h2>八、联系我们</h2>
+      <ul>
+        <li><strong>应用名称：</strong>喂奶时间（Milk &amp; Nap Journal）</li>
+        <li><strong>运营主体：</strong>杭州布叽传媒科技有限公司</li>
+        <li><strong>技术支持中心：</strong><a href="./support.html">点击前往支持与帮助页面</a></li>
+        <li><strong>联系邮箱：</strong><a href="mailto:teslawang9@gmail.com">teslawang9@gmail.com</a></li>
+      </ul>
+    </main>
+
+    <footer>
+      &copy; 2026 喂奶时间 (Milk &amp; Nap Journal). All rights reserved. · <a href="./support.html">技术支持</a> · <a href="./terms.html">用户协议</a> · <a href="./privacy.html">隐私政策</a>
+    </footer>
+  </div>
+</body>
+</html>

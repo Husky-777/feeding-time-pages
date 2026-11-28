@@ -1,0 +1,25 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "2KYTA8MQ57.com.milkjournal.feedingtime",
+        "appIDs": [
+          "2KYTA8MQ57.com.milkjournal.feedingtime"
+        ],
+        "paths": [
+          "/app/*",
+          "/wx/*"
+        ],
+        "components": [
+          {
+            "/": "/app/*"
+          },
+          {
+            "/": "/wx/*"
+          }
+        ]
+      }
+    ]
+  }
+}
