@@ -68,8 +68,44 @@
     <div class="logo">🍼</div>
     <h1>喂奶时间</h1>
     <p>手账风宝宝喂养与睡眠记录工具<br/>如未自动唤起应用，可点击下方按钮打开</p>
-    <a class="btn" href="feedingtime://open">打开「喂奶时间」App</a>
+    <a class="btn" id="open-app-btn" href="feedingtime://open">打开「喂奶时间」App</a>
+    <div id="open-tip" style="display:none;margin:10px 0 12px;padding:10px 12px;border-radius:12px;background:#fff4d6;color:#7a5318;font-size:12.5px;line-height:1.6;text-align:left;"></div>
     <a class="sub" href="../index.html">返回官网首页</a>
   </div>
+  <script>
+    (function () {
+      var btn = document.getElementById('open-app-btn');
+      var tip = document.getElementById('open-tip');
+      var ua = navigator.userAgent || '';
+      var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      var isWeChat = /MicroMessenger/i.test(ua);
+
+      function showTip(msg) {
+        tip.textContent = msg;
+        tip.style.display = 'block';
+      }
+
+      btn.addEventListener('click', function (e) {
+        if (!isIOS) {
+          e.preventDefault();
+          showTip('当前为电脑浏览器，无法直接唤起 iOS App。请用已安装「喂奶时间」的 iPhone 或 iPad 打开此链接即可直接唤起。');
+          return;
+        }
+        if (isWeChat) {
+          e.preventDefault();
+          showTip('微信内置浏览器会拦截直接唤起，请点击右上角「···」选择「在默认浏览器（Safari）中打开」后再点击打开 App。');
+          return;
+        }
+        var hidden = false;
+        var onVis = function () { if (document.hidden) hidden = true; };
+        document.addEventListener('visibilitychange', onVis, { once: true });
+        setTimeout(function () {
+          if (!hidden) {
+            showTip('未检测到已安装的「喂奶时间」App，请先通过 TestFlight 或 App Store 安装后再试。');
+          }
+        }, 1600);
+      });
+    })();
+  </script>
 </body>
 </html>
